@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .p {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function calcular() {
+            v1 = parseInt(document.getElementById("v1").value);
+            v2 = parseInt(document.getElementById("v2").value);
+            operator = document.querySelectorAll("input[radio]").value.addEventListener('click');
+            switch (operator) {
+                case 'add':
+                    result = v1 + v2;
+                    operator = "+";
+                    break;
+                case 'sub':
+                    result = v1 - v2;
+                    operator = "-";
+                    break;
+                case 'div':
+                    result = v1 / v2;
+                    operator = "/";
+                    break;
+                case 'mult':
+                    result = v1 * v2;
+                    operator = "*";
+                    break;
+            }
+
+            document.getElementById("demo").innerHTML = `O resultado de ${v1} ${operator} ${v2} é: ${result}`;
+        }
+    </script>
+    <div class="p">
+        <label for="v1">valor 1: </label>
+        <input type="text" id="v1" placeholder="Digite o valor" />
+    </div>
+    <div class="p">
+        <label for="v2">valor 2: </label>
+        <input type="text" id="v2" placeholder="Digite o valor" />
+    </div>
+    <div class="p">
+        <input type="radio" name="operator" value="add" /> Adição
+        <input type="radio" name="operator" value="sub" /> Substração
+        <input type="radio" name="operator" value="div" /> Divisão
+        <input type="radio" name="operator" value="mult" /> Multiplicação
+    </div>
+    <button class="p" onclick="calcular()">calcular</button>
+    <br />
+    <p id="demo"></p>
+</body>
+
+</html>
